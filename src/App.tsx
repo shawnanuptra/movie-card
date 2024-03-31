@@ -63,12 +63,13 @@ const CardBody = styled.div`
 	}
 
 	.poster {
-		aspect-ratio: 4/3;
+		display: flex;
 		grid-column: 1/2;
 		grid-row: 1/4;
-		width: 100%;
-		height: auto;
-		object-fit: cover;
+		height: 100%;
+		object-fit: contain;
+		justify-content: center;
+		align-items: center;
 
 		img {
 			width: 100%;
@@ -100,6 +101,55 @@ const CardBody = styled.div`
 		grid-column: 4;
 		grid-row: 2/4;
 		width: max-content;
+	}
+`;
+
+const CardFooter = styled.div`
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr auto;
+	gap: 2rem;
+	margin-top: 2rem;
+	align-items: center;
+	.price_buy {
+		grid-column: 1;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-weight: 700;
+
+		.buy {
+			padding: 0.1rem 1.5rem;
+			border-radius: 999px;
+			border: 2px solid black;
+			transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
+			&:hover {
+				color: white;
+				background-color: black;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.watch_trailer {
+		grid-column: 4;
+		justify-self: end;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+		background-color: black;
+		border-radius: 999px;
+		color: white;
+		padding-left: 15px;
+		padding: 0.1rem 0 0.1rem 15px;
+
+		gap: 0.5rem;
+
+		svg {
+			background-color: white;
+			border-radius: 999px;
+			border: 1px solid black;
+		}
 	}
 `;
 function App() {
@@ -173,6 +223,27 @@ function App() {
 					</div>
 				</div>
 			</CardBody>
+			<CardFooter>
+				<div className='price_buy'>
+					<span className='price'>$19.00</span>
+					<span className='buy'>BUY</span>
+				</div>
+				<div className='watch_trailer'>
+					WATCH TRAILER{" "}
+					<svg
+						width='30'
+						height='30'
+						viewBox='0 0 200 200'
+						fill='white'
+						xmlns='http://www.w3.org/2000/svg'
+					>
+						<path
+							d='M159 99.5L71.25 150.162L71.25 48.8375L159 99.5Z'
+							fill='black'
+						/>
+					</svg>
+				</div>
+			</CardFooter>
 		</Card>
 	);
 }
