@@ -6,6 +6,8 @@ const Card = styled.div`
 	background-color: white;
 	width: 80vw;
 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+	max-width: 1200px;
 `;
 
 const CardHead = styled.div`
@@ -48,6 +50,7 @@ const CardBody = styled.div`
 	width: 100%;
 	max-width: 100vw;
 	gap: 2rem;
+	margin-top: 2rem;
 
 	h3 {
 		margin-top: 0;
@@ -102,9 +105,45 @@ const CardBody = styled.div`
 		grid-row: 2/4;
 		width: max-content;
 	}
+
+	@media (max-width: 900px) {
+		margin-bottom: 2rem;
+		grid-template-columns: 1fr;
+		.poster,
+		.about,
+		.actors,
+		.director_screenwriters,
+		.producers {
+			grid-column: 1;
+		}
+
+		.poster {
+			grid-row: 1;
+			width: 100%;
+			height: auto;
+			img {
+				height: auto;
+				width: 100%;
+			}
+		}
+		.about {
+			grid-row: 2;
+		}
+		.actors {
+			grid-row: 3;
+		}
+		.director_screenwriters {
+			grid-row: 4;
+		}
+		.producers {
+			grid-row: 5;
+		}
+	}
 `;
 
 const CardFooter = styled.div`
+	width: 100%;
+	max-width: 100vw;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr auto;
 	gap: 2rem;
@@ -149,6 +188,26 @@ const CardFooter = styled.div`
 			background-color: white;
 			border-radius: 999px;
 			border: 1px solid black;
+		}
+	}
+
+	@media (max-width: 900px) {
+		grid-template-columns: 1fr;
+		grid-row: auto;
+		gap: 1rem;
+		.price_buy {
+			order: 2;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			grid-column: 1;
+		}
+		.watch_trailer {
+			order: 1;
+			grid-column: 1;
+			display: flex;
+			justify-content: center;
+			justify-self: center;
 		}
 	}
 `;
